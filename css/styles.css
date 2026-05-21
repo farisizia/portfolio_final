@@ -27,3 +27,22 @@
 ::-webkit-scrollbar-thumb:hover {
     background: #475569;
 }
+
+/* Responsive visibility overrides */
+.mobile-only-header {
+    display: flex !important;
+}
+@media (min-width: 1024px) {
+    .mobile-only-header {
+        display: none !important;
+    }
+}
+
+.desktop-only-header {
+    display: none !important;
+}
+@media (min-width: 1024px) {
+    .desktop-only-header {
+        display: block !important;
+    }
+}
