@@ -1,3 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* Font Family Helper Classes */
+.font-outfit {
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+.font-grotesk {
+    font-family: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-subtle {
+    0%, 100% { opacity: 0.15; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.08); }
+}
+
+/* Animation utilities */
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+    animation: spin-slow 25s linear infinite;
+}
+
+.animate-pulse-subtle {
+    animation: pulse-subtle 8s ease-in-out infinite;
+}
+
+/* Scroll Fade Animations */
 .fade-in-section {
     opacity: 0;
     transform: translateY(20px);
@@ -9,6 +49,57 @@
     opacity: 1;
     transform: none;
 }
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.fade-in-left.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.fade-in-right.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-up {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+.scale-up.is-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger Delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
 
 /* Custom scrollbar for dark mode */
 ::-webkit-scrollbar {
@@ -26,6 +117,42 @@
 
 ::-webkit-scrollbar-thumb:hover {
     background: #475569;
+}
+
+/* Glassmorphism Cards */
+.glassmorphic-card {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glassmorphic-card:hover {
+    border-color: rgba(56, 189, 248, 0.25);
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.08);
+    transform: translateY(-5px);
+}
+
+/* Profile Image bottom fade */
+.mask-image-b-fade {
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 68%, rgba(0,0,0,0) 100%);
+}
+
+/* Hamburger animations */
+.hamburger-line {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease, background-color 0.3s ease;
+}
+.menu-open .hamburger-line-1 {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-open .hamburger-line-2 {
+    opacity: 0;
+}
+.menu-open .hamburger-line-3 {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Responsive visibility overrides */
@@ -46,3 +173,11 @@
         display: block !important;
     }
 }
+
+/* Unified Deep Space Background */
+body {
+    background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0b0f19 50%, #020617 100%) no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+

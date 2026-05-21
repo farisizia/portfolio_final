@@ -42,34 +42,63 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-400 hover:text-primary focus:outline-none p-2"
-                        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
+                    <button id="mobile-menu-btn"
+                        class="relative z-50 text-slate-400 hover:text-primary focus:outline-none w-10 h-10 flex flex-col justify-center items-center gap-1.5 rounded-full hover:bg-slate-800/50 transition-colors"
+                        aria-label="Toggle Menu">
+                        <span class="hamburger-line hamburger-line-1 w-6 h-0.5 bg-current rounded"></span>
+                        <span class="hamburger-line hamburger-line-2 w-6 h-0.5 bg-current rounded"></span>
+                        <span class="hamburger-line hamburger-line-3 w-6 h-0.5 bg-current rounded"></span>
                     </button>
                 </div>
             </div>
-
-        </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-slate-900 border-t border-slate-800" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#experience"
-                    class="block text-slate-400 hover:text-primary hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium">Experience</a>
-                <a href="#projects"
-                    class="block text-slate-400 hover:text-primary hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                <a href="#education"
-                    class="block text-slate-400 hover:text-primary hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium">Education</a>
-                <a href="#certifications"
-                    class="block text-slate-400 hover:text-primary hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium">Certifications</a>
-                <a href="#skills"
-                    class="block text-slate-400 hover:text-primary hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium">Skills</a>
+        <!-- Mobile Menu (Drawer Slide-out) -->
+        <div class="fixed inset-0 z-[45] bg-darker/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+            id="mobile-menu-backdrop"></div>
+        <div class="fixed top-0 right-0 bottom-0 w-[80vw] max-w-[320px] h-screen bg-slate-950/95 backdrop-blur-xl z-50 border-l border-slate-800 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-out md:hidden"
+            id="mobile-menu">
+            <div class="pt-12">
+                <!-- Drawer Header -->
+                <div class="flex items-center justify-between mb-8 pb-4 border-b border-slate-800/80">
+                    <span class="text-sm font-bold text-white tracking-[0.2em] uppercase font-grotesk">Menu</span>
+                </div>
+                <!-- Links -->
+                <nav class="flex flex-col space-y-4">
+                    <a href="#experience"
+                        class="mobile-nav-link text-slate-400 hover:text-primary py-2 text-lg font-medium transition-colors border-b border-slate-900 flex items-center justify-between font-outfit">
+                        <span>Experience</span>
+                        <span class="text-xs opacity-30 font-mono font-grotesk">01</span>
+                    </a>
+                    <a href="#projects"
+                        class="mobile-nav-link text-slate-400 hover:text-primary py-2 text-lg font-medium transition-colors border-b border-slate-900 flex items-center justify-between font-outfit">
+                        <span>Projects</span>
+                        <span class="text-xs opacity-30 font-mono font-grotesk">02</span>
+                    </a>
+                    <a href="#education"
+                        class="mobile-nav-link text-slate-400 hover:text-primary py-2 text-lg font-medium transition-colors border-b border-slate-900 flex items-center justify-between font-outfit">
+                        <span>Education</span>
+                        <span class="text-xs opacity-30 font-mono font-grotesk">03</span>
+                    </a>
+                    <a href="#certifications"
+                        class="mobile-nav-link text-slate-400 hover:text-primary py-2 text-lg font-medium transition-colors border-b border-slate-900 flex items-center justify-between font-outfit">
+                        <span>Certifications</span>
+                        <span class="text-xs opacity-30 font-mono font-grotesk">04</span>
+                    </a>
+                    <a href="#skills"
+                        class="mobile-nav-link text-slate-400 hover:text-primary py-2 text-lg font-medium transition-colors border-b border-slate-900 flex items-center justify-between font-outfit">
+                        <span>Skills</span>
+                        <span class="text-xs opacity-30 font-mono font-grotesk">05</span>
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Drawer Footer / CTA -->
+            <div class="mt-auto">
                 <a href="#contact"
-                    class="block text-primary font-semibold hover:bg-slate-800 px-3 py-2 rounded-md text-base">Connect</a>
+                    class="mobile-nav-link block w-full text-center bg-primary text-slate-900 py-3.5 rounded-xl font-bold hover:bg-sky-300 transition-colors shadow-lg shadow-sky-500/10 font-outfit">
+                    Connect
+                </a>
             </div>
         </div>
     </nav>
@@ -91,40 +120,47 @@
             <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between h-full gap-8 lg:gap-0">
 
                 <!-- Mobile Header Container -->
-                <div
-                    class="flex flex-col items-center mobile-only-header order-1 mt-16 mb-8 w-full fade-in-section opacity-0 [animation-delay:200ms]">
-                    <!-- Name (H1) with Gradient Border -->
-                    <div
-                        class="relative w-fit mx-auto mb-1 rounded-xl p-[2px] bg-gradient-to-r from-blue-500 to-slate-500 shadow-lg">
-                        <h1 class="block rounded-xl px-6 py-3 bg-slate-900/60 backdrop-blur-md w-full h-full font-sans font-semibold tracking-widest leading-none text-center"
-                            style="font-size: clamp(1.1rem, 5vw, 1.8rem); white-space: nowrap;">
-                            <span
-                                class="bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400">Faris
-                                Izzi Asrori</span>
-                        </h1>
-                    </div>
-
+                <div class="flex flex-col items-center mobile-only-header order-1 mt-20 mb-6 w-full fade-in-up">
                     <!-- Badge -->
-                    <div class="text-center">
-                        <span class="inline-block py-1 px-4 rounded bg-blue-900/20 border border-blue-800/50 
-                            text-sky-400 text-xs font-bold tracking-[0.2em] uppercase backdrop-blur-sm w-fit mx-auto">
+                    <div class="mb-4">
+                        <span
+                            class="inline-block py-1.5 px-4 rounded-full bg-blue-950/40 border border-blue-500/30 
+                            text-sky-400 text-[10px] font-extrabold tracking-[0.25em] uppercase backdrop-blur-md shadow-[0_0_15px_rgba(56,189,248,0.15)] font-grotesk animate-glow">
                             Quality Assurance Engineer
                         </span>
                     </div>
+
+                    <!-- Name (H1) -->
+                    <h1 class="font-grotesk tracking-tight text-center mb-1"
+                        style="font-size: clamp(2rem, 8vw, 3rem); line-height: 1.1;">
+                        <span
+                            class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-sky-200 to-sky-400">Faris</span>
+                        <span
+                            class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-purple-400">Izzi
+                            Asrori</span>
+                    </h1>
                 </div>
 
                 <!-- Left Column: Image -->
                 <div
-                    class="relative w-64 sm:w-80 lg:w-[520px] flex-shrink-0 lg:-ml-16 lg:mr-10 lg:mt-16 order-2 lg:order-1 fade-in-section opacity-0 [animation-delay:300ms] flex justify-center lg:justify-end">
+                    class="relative w-60 sm:w-72 lg:w-[480px] flex-shrink-0 lg:-ml-16 lg:mr-10 lg:mt-16 order-2 lg:order-1 scale-up delay-100 flex justify-center lg:justify-end">
                     <!-- Image Container -->
-                    <div class="relative w-full">
+                    <div class="relative w-full flex justify-center animate-float">
+                        <!-- Ambient Rotating Ring Backdrop -->
+                        <div
+                            class="absolute w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 rounded-full border border-dashed border-sky-500/10 animate-spin-slow pointer-events-none self-center">
+                        </div>
+                        <div
+                            class="absolute w-44 h-44 sm:w-60 sm:h-60 lg:w-[350px] lg:h-[350px] rounded-full border border-sky-400/20 pointer-events-none self-center blur-[1px]">
+                        </div>
+
                         <!-- Glow behind image -->
                         <div
-                            class="absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent blur-3xl opacity-50 bottom-0 h-1/2 w-full">
+                            class="absolute w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[450px] lg:h-[450px] bg-gradient-to-tr from-blue-600/20 to-purple-600/10 rounded-full blur-[60px] sm:blur-[80px] animate-pulse-subtle pointer-events-none self-center">
                         </div>
 
                         <img src="assets/faris.png" alt="Faris Izzi Asrori"
-                            class="w-full h-auto object-contain relative z-10 drop-shadow-2xl mask-image-b-fade scale-110 lg:scale-100 origin-bottom">
+                            class="w-full h-auto object-contain relative z-10 drop-shadow-[0_15px_30px_rgba(56,189,248,0.25)] mask-image-b-fade scale-105 lg:scale-100 origin-bottom">
                     </div>
                 </div>
 
@@ -132,7 +168,7 @@
                 <div
                     class="flex-1 flex flex-col justify-center order-3 lg:order-2 pb-20 lg:pb-0 lg:mt-16 text-center lg:text-left z-20">
                     <!-- Desktop Header Container -->
-                    <div class="desktop-only-header fade-in-section opacity-0 [animation-delay:200ms]">
+                    <div class="desktop-only-header fade-in-up delay-200">
                         <!-- Badge -->
                         <div class="mb-6">
                             <span
@@ -153,19 +189,19 @@
                     </div>
 
                     <p
-                        class="text-lg text-slate-400 max-w-xl leading-relaxed mb-10 italic font-semibold fade-in-section opacity-0 [animation-delay:400ms] mx-auto lg:mx-0">
+                        class="text-lg text-slate-400 max-w-xl leading-relaxed mb-10 italic font-semibold fade-in-up delay-300 mx-auto lg:mx-0 font-outfit">
                         "Building digital confidence through rigorous testing. From manual precision to automated
                         scalability, I ensure your software is battle-tested and ready for the global market."
                     </p>
 
                     <div
-                        class="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start fade-in-section opacity-0 [animation-delay:600ms]">
+                        class="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start fade-in-up delay-400 px-4 sm:px-0">
                         <a href="#projects"
-                            class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-200 transition-all transform hover:-translate-y-1 shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)]">
+                            class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-200 hover:shadow-white/10 active:scale-[0.98] transition-all transform hover:-translate-y-0.5 shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)] font-outfit">
                             View Selected Work
                         </a>
                         <a href="#contact"
-                            class="px-8 py-4 bg-transparent border border-slate-700 text-white font-medium rounded-lg hover:border-white hover:bg-white/5 transition-all">
+                            class="px-8 py-4 bg-slate-900/50 backdrop-blur border border-slate-700 hover:border-sky-400 text-white font-semibold rounded-lg hover:bg-white/5 active:scale-[0.98] transition-all transform hover:-translate-y-0.5 font-outfit">
                             Contact Me
                         </a>
                     </div>
@@ -194,8 +230,7 @@
 
             <div class="grid gap-8 md:grid-cols-2">
                 <!-- Job 1: Topindoku -->
-                <div
-                    class="bg-card rounded-2xl p-8 border border-slate-800 hover:border-primary/30 transition-all shadow-lg shadow-black/20 group fade-in-section">
+                <div class="glassmorphic-card rounded-2xl p-8 group fade-in-left">
                     <!-- Header -->
                     <div class="flex flex-col sm:flex-row sm:items-start justify-between mb-6 gap-4">
                         <div class="flex items-center gap-4">
@@ -253,30 +288,28 @@
                     <!-- Footer / Tags -->
                     <div class="mt-6 pt-6 border-t border-slate-800 flex flex-wrap gap-2">
                         <span
-                            class="px-2 py-1 text-xs font-medium text-sky-300 bg-sky-900/30 border border-sky-700/50 rounded">Cypress</span>
+                            class="px-2 py-1 text-xs font-medium text-sky-300 bg-sky-900/30 border border-sky-700/50 rounded font-grotesk">Cypress</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-sky-300 bg-sky-900/30 border border-sky-700/50 rounded">Katalon
+                            class="px-2 py-1 text-xs font-medium text-sky-300 bg-sky-900/30 border border-sky-700/50 rounded font-grotesk">Katalon
                             Studio</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-sky-300 bg-sky-900/30 border border-sky-700/50 rounded">Postman</span>
+                            class="px-2 py-1 text-xs font-medium text-sky-300 bg-sky-900/30 border border-sky-700/50 rounded font-grotesk">Postman</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded">Test
+                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded font-grotesk">Test
                             Case</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded">UAT
+                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded font-grotesk">UAT
                             Documentation</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded">Bug
+                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded font-grotesk">Bug
                             Report</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded">Exploratory
+                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded font-grotesk">Exploratory
                             Testing</span>
                     </div>
                 </div>
-
                 <!-- Job 2: Hallo Technology -->
-                <div
-                    class="bg-card rounded-2xl p-8 border border-slate-800 hover:border-slate-600 transition-all shadow-lg shadow-black/20 group fade-in-section">
+                <div class="glassmorphic-card rounded-2xl p-8 group fade-in-right">
                     <!-- Header -->
                     <div class="flex flex-col sm:flex-row sm:items-start justify-between mb-6 gap-4">
                         <div class="flex items-center gap-4">
@@ -325,19 +358,19 @@
                     <!-- Footer / Tags -->
                     <div class="mt-6 pt-6 border-t border-slate-800 flex flex-wrap gap-2">
                         <span
-                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded">Activity
+                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded font-grotesk">Activity
                             Diagrams</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded">Business
+                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded font-grotesk">Business
                             Process</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded">Use
+                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded font-grotesk">Use
                             Case Diagram</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded">Sequence
+                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded font-grotesk">Sequence
                             Diagram</span>
                         <span
-                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded">SRD</span>
+                            class="px-2 py-1 text-xs font-medium text-slate-400 bg-slate-800 border border-slate-700 rounded font-grotesk">SRD</span>
                     </div>
                 </div>
             </div>
@@ -361,7 +394,7 @@
                 class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 hide-scrollbar scroll-smooth md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0">
                 <!-- Topindoku -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/topindo.jpg" alt="Topindoku Apps" class="w-full h-full object-cover">
                     </div>
@@ -416,7 +449,7 @@
 
                 <!-- Kasflo Resto -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/resto.jpg" alt="POS Kasflo Resto" class="w-full h-full object-cover">
                     </div>
@@ -456,7 +489,7 @@
 
                 <!-- Arunika -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-200">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/arunika.png" alt="Arunika AI" class="w-full h-full object-cover">
                     </div>
@@ -496,7 +529,7 @@
 
                 <!-- Uwang -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/uwang.png" alt="Uwang Mobile App" class="w-full h-full object-cover">
                     </div>
@@ -539,7 +572,7 @@
 
                 <!-- Project 4: POS Kasflo Bisnis -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/Bisnis.webp" alt="POS Kasflo Bisnis"
                             class="w-full h-full object-cover">
@@ -582,7 +615,7 @@
 
                 <!-- Mysemesta -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-200">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/mysemesta.png" alt="Mysemesta Mobile App"
                             class="w-full h-full object-cover">
@@ -626,7 +659,7 @@
                 <!-- Project 5: Backoffice Kasflo Resto -->
 
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/boresto.webp" alt="Backoffice Kasflo Resto"
                             class="w-full h-full object-cover">
@@ -673,7 +706,7 @@
 
                 <!-- Kopikoe -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/kopikoe.png" alt="POS Kasflo Resto"
                             class="w-full h-full object-cover">
@@ -729,7 +762,7 @@
 
                 <!-- Alphanet -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-200">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/alphanet.png" alt="Alphanet App" class="w-full h-full object-cover">
                     </div>
@@ -771,7 +804,7 @@
 
                 <!-- Kalarindu -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/kalarindu.png" alt="Kalarindu" class="w-full h-full object-cover">
                     </div>
@@ -826,7 +859,7 @@
                 </div>
                 <!-- Project 5: Backoffice Kasflo Bisnis -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all shadow-lg hover:shadow-primary/10 fade-in-section group">
+                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/bobisnis.webp" alt="Backoffice Kasflo Bisnis"
                             class="w-full h-full object-cover">
@@ -894,7 +927,7 @@
                 </h3>
 
                 <div
-                    class="bg-card rounded-2xl p-8 border border-slate-800 hover:border-red-900/50 transition-all shadow-lg shadow-black/20 group relative overflow-hidden">
+                    class="glassmorphic-card rounded-2xl p-8 group relative overflow-hidden fade-in-up hover:border-red-500/20">
                     <!-- Decorative Gradient -->
                     <div
                         class="absolute top-0 right-0 p-32 bg-red-600/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none transition-opacity duration-500 opacity-50 group-hover:opacity-100">
@@ -1002,7 +1035,7 @@
 
                     <!-- Card 1 -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/20 border border-slate-800 group hover:border-slate-600 transition-all flex flex-col">
+                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up">
                         <!-- Certificate Image Placeholder -->
                         <!-- Certificate Image -->
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
@@ -1037,7 +1070,7 @@
 
                     <!-- Card 2 -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/20 border border-slate-800 group hover:border-slate-600 transition-all flex flex-col">
+                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-100">
                         <!-- Certificate Image -->
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/habiskerja.jpeg', 'Quality Assurance Class')">
@@ -1067,7 +1100,7 @@
 
                     <!-- Card 3 -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/20 border border-slate-800 group hover:border-slate-600 transition-all flex flex-col">
+                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-200">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/sololearn.jpeg', 'Python For Beginners')">
                             <img src="assets/certifications/sololearn.jpeg" alt="Certificate Thumbnail"
@@ -1097,7 +1130,7 @@
 
                     <!-- Card 4: Machine Learning -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/20 border border-slate-800 group hover:border-slate-600 transition-all flex flex-col">
+                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-300">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/machine.jpeg', 'Intermediate Machine Learning')">
                             <img src="assets/certifications/machine.jpeg" alt="Certificate Thumbnail"
@@ -1127,7 +1160,7 @@
 
                     <!-- Card 5: Figma -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/20 border border-slate-800 group hover:border-slate-600 transition-all flex flex-col">
+                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/coursera.jpeg', 'Figma for UX Design')">
                             <img src="assets/certifications/coursera.jpeg" alt="Certificate Thumbnail"
@@ -1156,7 +1189,7 @@
 
                     <!-- Card 6: UX Design -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/20 border border-slate-800 group hover:border-slate-600 transition-all flex flex-col">
+                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-100">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/google.jpeg', 'Basics of UX Design')">
                             <img src="assets/certifications/google.jpeg" alt="Certificate Thumbnail"
@@ -1186,7 +1219,7 @@
                     <!-- Card 7: Progate -->
 
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/20 border border-slate-800 group hover:border-slate-600 transition-all flex flex-col">
+                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-200">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/python.jpg', 'Python Course Learning')">
                             <img src="assets/certifications/python.jpg" alt="Certificate Thumbnail"
@@ -1216,7 +1249,7 @@
                     <!-- Card 8: Outsystem -->
 
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/20 border border-slate-800 group hover:border-slate-600 transition-all flex flex-col">
+                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-300">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/outsystem.jpeg', 'Outsystem Course Learning')">
                             <img src="assets/certifications/outsystem.jpeg" alt="Certificate Thumbnail"
@@ -1263,7 +1296,8 @@
         </button>
 
         <!-- Modal Content -->
-        <div class="max-w-5xl w-full flex flex-col items-center">
+        <div id="modalContent"
+            class="max-w-5xl w-full flex flex-col items-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
             <h3 id="modalTitle" class="text-2xl font-bold text-white mb-6 text-center">Certificate Title</h3>
             <div
                 class="relative w-full max-h-[80vh] flex justify-center bg-slate-900 rounded-lg overflow-hidden border border-slate-800">
@@ -1291,6 +1325,7 @@
             const modalTitle = document.getElementById('modalTitle');
             const modalImg = document.getElementById('modalImage');
             const placeholder = document.getElementById('modalImagePlaceholder');
+            const modalContent = document.getElementById('modalContent');
 
             modalTitle.textContent = title;
             // Check if it's a real image or a placeholder
@@ -1307,12 +1342,21 @@
             // Small delay to allow display:block to apply before opacity transition
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
+                if (modalContent) {
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    modalContent.classList.add('scale-100', 'opacity-100');
+                }
             }, 10);
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
         }
 
         function closeModal() {
             const modal = document.getElementById('certModal');
+            const modalContent = document.getElementById('modalContent');
+            if (modalContent) {
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                modalContent.classList.add('scale-95', 'opacity-0');
+            }
             modal.classList.add('opacity-0');
             setTimeout(() => {
                 modal.classList.add('hidden');
@@ -1346,11 +1390,10 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8 fade-in-section">
+            <div class="grid md:grid-cols-2 gap-8">
 
                 <!-- Category 1: Technical Skills -->
-                <div
-                    class="bg-card rounded-2xl p-8 border border-slate-800 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5 group">
+                <div class="glassmorphic-card rounded-2xl p-8 group fade-in-up">
                     <div class="flex items-center mb-6">
                         <div
                             class="p-3 bg-blue-500/10 rounded-lg text-blue-400 mr-4 group-hover:bg-blue-500/20 transition-colors">
@@ -1406,8 +1449,7 @@
                 </div>
 
                 <!-- Category 2: Tools & Platforms -->
-                <div
-                    class="bg-card rounded-2xl p-8 border border-slate-800 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5 group">
+                <div class="glassmorphic-card rounded-2xl p-8 group fade-in-up delay-100">
                     <div class="flex items-center mb-6">
                         <div
                             class="p-3 bg-purple-500/10 rounded-lg text-purple-400 mr-4 group-hover:bg-purple-500/20 transition-colors">
@@ -1484,8 +1526,7 @@
                 </div>
 
                 <!-- Category 3: Programming -->
-                <div
-                    class="bg-card rounded-2xl p-8 border border-slate-800 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5 group">
+                <div class="glassmorphic-card rounded-2xl p-8 group fade-in-up delay-200">
                     <div class="flex items-center mb-6">
                         <div
                             class="p-3 bg-emerald-500/10 rounded-lg text-emerald-400 mr-4 group-hover:bg-emerald-500/20 transition-colors">
@@ -1538,8 +1579,7 @@
                 </div>
 
                 <!-- Category 4: Soft Skills -->
-                <div
-                    class="bg-card rounded-2xl p-8 border border-slate-800 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5 group">
+                <div class="glassmorphic-card rounded-2xl p-8 group fade-in-up delay-300">
                     <div class="flex items-center mb-6">
                         <div
                             class="p-3 bg-rose-500/10 rounded-lg text-rose-400 mr-4 group-hover:bg-rose-500/20 transition-colors">
@@ -1635,15 +1675,38 @@
         // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
+        const backdrop = document.getElementById('mobile-menu-backdrop');
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        function toggleMenu() {
+            const isOpen = btn.classList.contains('menu-open');
+            if (isOpen) {
+                // Close menu
+                btn.classList.remove('menu-open');
+                menu.classList.add('translate-x-full');
+                menu.classList.remove('translate-x-0');
+                backdrop.classList.add('opacity-0', 'pointer-events-none');
+                backdrop.classList.remove('opacity-100');
+                document.body.style.overflow = '';
+            } else {
+                // Open menu
+                btn.classList.add('menu-open');
+                menu.classList.remove('translate-x-full');
+                menu.classList.add('translate-x-0');
+                backdrop.classList.remove('opacity-0', 'pointer-events-none');
+                backdrop.classList.add('opacity-100');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        btn.addEventListener('click', toggleMenu);
+        backdrop.addEventListener('click', toggleMenu);
 
         // Close mobile menu on link click
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                menu.classList.add('hidden');
+                if (btn.classList.contains('menu-open')) {
+                    toggleMenu();
+                }
             });
         });
 
@@ -1677,7 +1740,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.fade-in-section').forEach(section => {
+        document.querySelectorAll('.fade-in-section, .fade-in-up, .fade-in-left, .fade-in-right, .scale-up').forEach(section => {
             observer.observe(section);
         });
 
