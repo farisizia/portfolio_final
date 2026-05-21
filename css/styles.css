@@ -176,8 +176,31 @@
 
 /* Unified Deep Space Background */
 body {
-    background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0b0f19 50%, #020617 100%) no-repeat;
+    background-color: #020617;
+    background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #0b0f19 50%, #020617 100%);
     background-attachment: fixed;
     background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Override scroll entrance animations for horizontal scrolling containers on mobile to ensure instant visibility */
+@media (max-width: 767px) {
+    .mobile-horizontal-scroll .scale-up,
+    .mobile-horizontal-scroll .fade-in-up,
+    .mobile-horizontal-scroll .fade-in-left,
+    .mobile-horizontal-scroll .fade-in-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
 }
 

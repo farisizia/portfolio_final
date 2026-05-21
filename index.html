@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body class="bg-darker text-slate-300 antialiased font-sans">
+<body class="text-slate-300 antialiased font-sans">
+    <canvas id="starfield" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
 
     <!-- Navigation -->
     <nav class="fixed w-full bg-darker/90 backdrop-blur-sm z-50 border-b border-slate-800 transition-all duration-300"
@@ -103,9 +104,8 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home"
-        class="relative min-h-screen flex items-center overflow-hidden bg-[radial-gradient(130%_100%_at_50%_-10%,_#1e293b_10%,_#0f172a_40%,_#020617_100%)]">
+        class="relative min-h-screen flex items-center overflow-hidden bg-transparent">
 
         <!-- Ambient Background Glows -->
         <div
@@ -219,7 +219,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-darker">
+    <section id="experience" class="py-20 bg-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-section">
                 <h2 class="text-base text-primary font-semibold tracking-wide uppercase">Career</h2>
@@ -378,7 +378,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-slate-900">
+    <section id="projects" class="py-20 bg-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in-section">
                 <h2 class="text-base text-primary font-semibold tracking-wide uppercase">Portfolio</h2>
@@ -390,11 +390,10 @@
                 </p>
             </div>
 
-            <div
-                class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 hide-scrollbar scroll-smooth md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-8 md:overflow-visible md:pb-0">
+            <div class="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-6 md:pb-0 mobile-horizontal-scroll no-scrollbar">
                 <!-- Topindoku -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/topindo.jpg" alt="Topindoku Apps" class="w-full h-full object-cover">
                     </div>
@@ -449,7 +448,7 @@
 
                 <!-- Kasflo Resto -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100 w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/resto.jpg" alt="POS Kasflo Resto" class="w-full h-full object-cover">
                     </div>
@@ -489,7 +488,7 @@
 
                 <!-- Arunika -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-200">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up delay-200 w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/arunika.png" alt="Arunika AI" class="w-full h-full object-cover">
                     </div>
@@ -529,7 +528,7 @@
 
                 <!-- Uwang -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/uwang.png" alt="Uwang Mobile App" class="w-full h-full object-cover">
                     </div>
@@ -572,7 +571,7 @@
 
                 <!-- Project 4: POS Kasflo Bisnis -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100 w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/Bisnis.webp" alt="POS Kasflo Bisnis"
                             class="w-full h-full object-cover">
@@ -615,7 +614,7 @@
 
                 <!-- Mysemesta -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-200">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up delay-200 w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/mysemesta.png" alt="Mysemesta Mobile App"
                             class="w-full h-full object-cover">
@@ -659,7 +658,7 @@
                 <!-- Project 5: Backoffice Kasflo Resto -->
 
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/boresto.webp" alt="Backoffice Kasflo Resto"
                             class="w-full h-full object-cover">
@@ -706,7 +705,7 @@
 
                 <!-- Kopikoe -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100 w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/kopikoe.png" alt="POS Kasflo Resto"
                             class="w-full h-full object-cover">
@@ -762,7 +761,7 @@
 
                 <!-- Alphanet -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-200">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up delay-200 w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/alphanet.png" alt="Alphanet App" class="w-full h-full object-cover">
                     </div>
@@ -804,7 +803,7 @@
 
                 <!-- Kalarindu -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/kalarindu.png" alt="Kalarindu" class="w-full h-full object-cover">
                     </div>
@@ -859,7 +858,7 @@
                 </div>
                 <!-- Project 5: Backoffice Kasflo Bisnis -->
                 <div
-                    class="snap-center shrink-0 w-80 md:w-auto glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100">
+                    class="glassmorphic-card rounded-xl overflow-hidden group scale-up delay-100 w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
                     <div class="h-48 bg-slate-800 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                         <img src="assets/projects/bobisnis.webp" alt="Backoffice Kasflo Bisnis"
                             class="w-full h-full object-cover">
@@ -907,7 +906,7 @@
     </section>
 
     <!-- Education & Certifications Grid -->
-    <section id="education" class="py-20 bg-darker overflow-hidden">
+    <section id="education" class="py-20 bg-transparent overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
             <!-- Education Section (Centered) -->
@@ -1000,7 +999,7 @@
     </section>
 
     <!-- Certifications Carousel Section -->
-    <section id="certifications" class="py-20 bg-slate-900 border-t border-slate-800/50">
+    <section id="certifications" class="py-20 bg-transparent border-t border-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="fade-in-section">
                 <div class="flex items-center justify-between mb-8 px-2">
@@ -1011,31 +1010,14 @@
                         </svg>
                         Certifications
                     </h3>
-                    <div class="flex gap-2">
-                        <button id="scrollLeft"
-                            class="p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 19l-7-7 7-7"></path>
-                            </svg>
-                        </button>
-                        <button id="scrollRight"
-                            class="p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
-                            </svg>
-                        </button>
-                    </div>
                 </div>
 
-                <!-- Carousel Container -->
-                <div id="certCarousel"
-                    class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 hide-scrollbar scroll-smooth">
+                <!-- Grid Container -->
+                <div id="certCarousel" class="flex sm:grid overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory sm:snap-none grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-6 sm:pb-0 mobile-horizontal-scroll no-scrollbar">
 
                     <!-- Card 1 -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up">
+                        class="glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up w-[80vw] shrink-0 snap-center sm:w-auto sm:shrink">
                         <!-- Certificate Image Placeholder -->
                         <!-- Certificate Image -->
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
@@ -1070,7 +1052,7 @@
 
                     <!-- Card 2 -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-100">
+                        class="glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-100 w-[80vw] shrink-0 snap-center sm:w-auto sm:shrink">
                         <!-- Certificate Image -->
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/habiskerja.jpeg', 'Quality Assurance Class')">
@@ -1100,7 +1082,7 @@
 
                     <!-- Card 3 -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-200">
+                        class="glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-200 w-[80vw] shrink-0 snap-center sm:w-auto sm:shrink">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/sololearn.jpeg', 'Python For Beginners')">
                             <img src="assets/certifications/sololearn.jpeg" alt="Certificate Thumbnail"
@@ -1130,7 +1112,7 @@
 
                     <!-- Card 4: Machine Learning -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-300">
+                        class="glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-300 w-[80vw] shrink-0 snap-center sm:w-auto sm:shrink">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/machine.jpeg', 'Intermediate Machine Learning')">
                             <img src="assets/certifications/machine.jpeg" alt="Certificate Thumbnail"
@@ -1160,7 +1142,7 @@
 
                     <!-- Card 5: Figma -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up">
+                        class="glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up w-[80vw] shrink-0 snap-center sm:w-auto sm:shrink">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/coursera.jpeg', 'Figma for UX Design')">
                             <img src="assets/certifications/coursera.jpeg" alt="Certificate Thumbnail"
@@ -1189,7 +1171,7 @@
 
                     <!-- Card 6: UX Design -->
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-100">
+                        class="glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-100 w-[80vw] shrink-0 snap-center sm:w-auto sm:shrink">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/google.jpeg', 'Basics of UX Design')">
                             <img src="assets/certifications/google.jpeg" alt="Certificate Thumbnail"
@@ -1219,7 +1201,7 @@
                     <!-- Card 7: Progate -->
 
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-200">
+                        class="glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-200 w-[80vw] shrink-0 snap-center sm:w-auto sm:shrink">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/python.jpg', 'Python Course Learning')">
                             <img src="assets/certifications/python.jpg" alt="Certificate Thumbnail"
@@ -1249,7 +1231,7 @@
                     <!-- Card 8: Outsystem -->
 
                     <div
-                        class="snap-center shrink-0 w-[85vw] sm:w-[350px] glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-300">
+                        class="glassmorphic-card rounded-2xl overflow-hidden group flex flex-col scale-up delay-300 w-[80vw] shrink-0 snap-center sm:w-auto sm:shrink">
                         <div class="relative h-48 bg-slate-800 group-hover:bg-slate-750 transition-colors cursor-pointer overflow-hidden"
                             onclick="openModal('assets/certifications/outsystem.jpeg', 'Outsystem Course Learning')">
                             <img src="assets/certifications/outsystem.jpeg" alt="Certificate Thumbnail"
@@ -1374,7 +1356,7 @@
 
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-darker relative overflow-hidden">
+    <section id="skills" class="py-20 bg-transparent relative overflow-hidden">
         <!-- Background Elements -->
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-blue-600/5 blur-3xl"></div>
@@ -1627,7 +1609,7 @@
     </section>
 
     <!-- Contact CTA -->
-    <section id="contact" class="py-24 bg-gradient-to-b from-darker to-slate-900 relative overflow-hidden">
+    <section id="contact" class="py-24 bg-transparent relative overflow-hidden">
         <div class="max-w-4xl mx-auto px-4 relative z-10 text-center fade-in-section">
             <h2 class="text-3xl font-bold text-white mb-6">My Contact</h2>
             <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
@@ -1664,7 +1646,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-darker py-8 border-t border-slate-800">
+    <footer class="bg-transparent py-8 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-slate-600 text-sm">© 2026 Faris Izzi Asrori. All rights reserved.</p>
         </div>
@@ -1786,6 +1768,151 @@
         sections.forEach(section => {
             activeLinkObserver.observe(section);
         });
+
+        // Starfield Canvas Animation
+        (function() {
+            const canvas = document.getElementById('starfield');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let stars = [];
+            let width = window.innerWidth;
+            let height = window.innerHeight;
+            
+            // Mouse/Touch tracking
+            let mouseX = 0;
+            let mouseY = 0;
+            let currentMouseX = 0;
+            let currentMouseY = 0;
+            let hasMovedMouse = false;
+            
+            // Scroll tracking
+            let lastScrollY = window.scrollY;
+            let scrollOffset = window.scrollY;
+            let targetScrollOffset = window.scrollY;
+            
+            // Palettes: sky-blue (56, 189, 248), violet (129, 140, 248), white (255, 255, 255)
+            const starColors = [
+                'rgba(255, 255, 255, ',
+                'rgba(56, 189, 248, ',
+                'rgba(129, 140, 248, '
+            ];
+            
+            function resize() {
+                width = window.innerWidth;
+                height = window.innerHeight;
+                canvas.width = width;
+                canvas.height = height;
+                initStars();
+            }
+            
+            function initStars() {
+                stars = [];
+                // Determine star count based on screen width
+                const maxStars = width < 768 ? 150 : 350;
+                
+                for (let i = 0; i < maxStars; i++) {
+                    stars.push({
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        z: Math.random() * 0.9 + 0.1, // Depth (0.1 to 1.0)
+                        size: Math.random() * 1.5 + 0.5, // Base radius
+                        colorPrefix: starColors[Math.floor(Math.random() * starColors.length)],
+                        twinkleSpeed: 0.01 + Math.random() * 0.03,
+                        twinklePhase: Math.random() * Math.PI * 2,
+                        baseOpacity: 0.3 + Math.random() * 0.7
+                    });
+                }
+            }
+            
+            window.addEventListener('resize', resize);
+            
+            // Track mouse/touch
+            window.addEventListener('mousemove', (e) => {
+                hasMovedMouse = true;
+                // Normalize coordinates relative to window center
+                mouseX = e.clientX - width / 2;
+                mouseY = e.clientY - height / 2;
+            });
+            
+            window.addEventListener('touchmove', (e) => {
+                hasMovedMouse = true;
+                if (e.touches.length > 0) {
+                    mouseX = e.touches[0].clientX - width / 2;
+                    mouseY = e.touches[0].clientY - height / 2;
+                }
+            }, { passive: true });
+            
+            // Track scroll
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                const diff = currentScrollY - lastScrollY;
+                targetScrollOffset += diff * 0.5; // Scale scroll movement
+                lastScrollY = currentScrollY;
+            }, { passive: true });
+            
+            // Initialize canvas
+            resize();
+            
+            function animate() {
+                // Clear screen
+                ctx.clearRect(0, 0, width, height);
+                
+                // Interpolate mouse coordinates for smooth lag-behind parallax effect
+                currentMouseX += (mouseX - currentMouseX) * 0.05;
+                currentMouseY += (mouseY - currentMouseY) * 0.05;
+                
+                // Interpolate scroll offset
+                scrollOffset += (targetScrollOffset - scrollOffset) * 0.1;
+                
+                // Base speed drift
+                const baseDriftY = -0.15; // Slow upward drift
+                
+                for (let i = 0; i < stars.length; i++) {
+                    const star = stars[i];
+                    
+                    // Update star position with base drift
+                    star.y += baseDriftY * star.z;
+                    if (star.y < 0) {
+                        star.y = height;
+                        star.x = Math.random() * width;
+                    } else if (star.y > height) {
+                        star.y = 0;
+                        star.x = Math.random() * width;
+                    }
+                    
+                    // Update twinkle phase
+                    star.twinklePhase += star.twinkleSpeed;
+                    const twinkle = Math.sin(star.twinklePhase) * 0.3;
+                    const opacity = Math.max(0.1, Math.min(1.0, star.baseOpacity + twinkle));
+                    
+                    // Apply base drift + mouse parallax + scroll parallax
+                    const mouseDriftX = hasMovedMouse ? (currentMouseX * star.z * 0.05) : 0;
+                    const mouseDriftY = hasMovedMouse ? (currentMouseY * star.z * 0.05) : 0;
+                    const scrollDriftY = scrollOffset * star.z * 0.8;
+                    
+                    // Draw star coordinates calculated with parallax
+                    let drawX = star.x - mouseDriftX;
+                    let drawY = star.y - scrollDriftY - mouseDriftY;
+                    
+                    // Wrap-around coordinates
+                    drawX = (drawX % width + width) % width;
+                    drawY = (drawY % height + height) % height;
+                    
+                    // Draw star
+                    ctx.beginPath();
+                    const radius = star.size * (0.4 + star.z * 0.6);
+                    ctx.arc(drawX, drawY, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = star.colorPrefix + opacity + ')';
+                    ctx.fill();
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            // Start animation loop
+            animate();
+        })();
     </script>
 </body>
 
