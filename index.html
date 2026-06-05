@@ -12,6 +12,19 @@
 </head>
 
 <body class="text-slate-300 antialiased font-sans">
+    <!-- Intro Loader -->
+    <div id="intro-loader">
+        <div class="intro-glow"></div>
+        <div class="intro-text-container">
+            <div id="intro-text-1" class="intro-text">Hello World</div>
+            <div id="intro-text-2" class="intro-text">My Portfolio</div>
+            <div id="intro-text-3" class="intro-text">Faris Izzi Asrori</div>
+        </div>
+        <div class="intro-progress-container">
+            <div id="intro-progress-bar" class="intro-progress-bar"></div>
+        </div>
+    </div>
+
     <canvas id="starfield" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
 
     <!-- Navigation -->
@@ -195,14 +208,23 @@
                     </p>
 
                     <div
-                        class="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start fade-in-up delay-400 px-4 sm:px-0">
-                        <a href="#projects"
-                            class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-200 hover:shadow-white/10 active:scale-[0.98] transition-all transform hover:-translate-y-0.5 shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)] font-outfit">
-                            View Selected Work
-                        </a>
-                        <a href="#contact"
-                            class="px-8 py-4 bg-slate-900/50 backdrop-blur border border-slate-700 hover:border-sky-400 text-white font-semibold rounded-lg hover:bg-white/5 active:scale-[0.98] transition-all transform hover:-translate-y-0.5 font-outfit">
-                            Contact Me
+                        class="flex flex-col items-stretch gap-4 fade-in-up delay-400 px-4 sm:px-0 w-full sm:w-fit mx-auto lg:mx-0">
+                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start items-stretch sm:items-center">
+                            <a href="#projects"
+                                class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-200 hover:shadow-white/10 active:scale-[0.98] transition-all transform hover:-translate-y-0.5 shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)] font-outfit text-center flex-1 sm:flex-none">
+                                View Selected Work
+                            </a>
+                            <a href="#contact"
+                                class="px-8 py-4 bg-slate-900/50 backdrop-blur border border-slate-700 hover:border-sky-400 text-white font-semibold rounded-lg hover:bg-white/5 active:scale-[0.98] transition-all transform hover:-translate-y-0.5 font-outfit text-center flex-1 sm:flex-none">
+                                Contact Me
+                            </a>
+                        </div>
+                        <a href="assets/cv.pdf" download
+                            class="w-full px-8 py-4 sm:py-2.5 text-base sm:text-sm bg-primary/10 border border-primary/30 hover:border-primary text-primary font-semibold rounded-lg hover:bg-primary/20 active:scale-[0.98] transition-all transform hover:-translate-y-0.5 font-outfit flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                            Download CV
                         </a>
                     </div>
                 </div>
@@ -1912,6 +1934,69 @@
             
             // Start animation loop
             animate();
+        })();
+    </script>
+
+    <!-- Intro Loader Script -->
+    <script>
+        (function() {
+            // Lock body scroll immediately
+            document.body.style.overflow = 'hidden';
+
+            const pBar = document.getElementById('intro-progress-bar');
+            const txt1 = document.getElementById('intro-text-1');
+            const txt2 = document.getElementById('intro-text-2');
+            const txt3 = document.getElementById('intro-text-3');
+            const loader = document.getElementById('intro-loader');
+
+            // Phase 1: Start and reveal Text 1
+            setTimeout(() => {
+                if (pBar) pBar.style.transform = 'scaleX(0.3)';
+                if (txt1) txt1.classList.add('active');
+            }, 200);
+
+            // Phase 2: Exit Text 1, progress to 60%
+            setTimeout(() => {
+                if (txt1) {
+                    txt1.classList.remove('active');
+                    txt1.classList.add('exit');
+                }
+                if (pBar) pBar.style.transform = 'scaleX(0.6)';
+            }, 1300);
+
+            // Phase 3: Reveal Text 2
+            setTimeout(() => {
+                if (txt2) txt2.classList.add('active');
+            }, 1700);
+
+            // Phase 4: Exit Text 2, progress to 85%
+            setTimeout(() => {
+                if (txt2) {
+                    txt2.classList.remove('active');
+                    txt2.classList.add('exit');
+                }
+                if (pBar) pBar.style.transform = 'scaleX(0.85)';
+            }, 2700);
+
+            // Phase 5: Reveal Text 3 (Faris Izzi Asrori), progress to 100%
+            setTimeout(() => {
+                if (txt3) txt3.classList.add('active');
+                if (pBar) pBar.style.transform = 'scaleX(1)';
+            }, 3100);
+
+            // Phase 6: Fade out entire loader overlay
+            setTimeout(() => {
+                if (loader) loader.classList.add('fade-out');
+            }, 4400);
+
+            // Phase 7: Clean up DOM, unlock scroll, and trigger entry animations
+            setTimeout(() => {
+                if (loader) loader.remove();
+                document.body.style.overflow = '';
+                // Force scroll and resize events so scroll observer triggers animations instantly
+                window.dispatchEvent(new Event('scroll'));
+                window.dispatchEvent(new Event('resize'));
+            }, 5400);
         })();
     </script>
 </body>
