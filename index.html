@@ -117,8 +117,7 @@
         </div>
     </nav>
 
-    <section id="home"
-        class="relative min-h-screen flex items-center overflow-hidden bg-transparent">
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-transparent">
 
         <!-- Ambient Background Glows -->
         <div
@@ -209,7 +208,8 @@
 
                     <div
                         class="flex flex-col items-stretch gap-4 fade-in-up delay-400 px-4 sm:px-0 w-full sm:w-fit mx-auto lg:mx-0">
-                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start items-stretch sm:items-center">
+                        <div
+                            class="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center lg:justify-start items-stretch sm:items-center">
                             <a href="#projects"
                                 class="px-8 py-4 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-200 hover:shadow-white/10 active:scale-[0.98] transition-all transform hover:-translate-y-0.5 shadow-[0_10px_30px_-10px_rgba(255,255,255,0.3)] font-outfit text-center flex-1 sm:flex-none">
                                 View Selected Work
@@ -222,7 +222,8 @@
                         <a href="assets/cv.pdf" download
                             class="w-full px-8 py-4 sm:py-2.5 text-base sm:text-sm bg-primary/10 border border-primary/30 hover:border-primary text-primary font-semibold rounded-lg hover:bg-primary/20 active:scale-[0.98] transition-all transform hover:-translate-y-0.5 font-outfit flex items-center justify-center gap-2">
                             <svg class="w-5 h-5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                             </svg>
                             Download CV
                         </a>
@@ -412,7 +413,8 @@
                 </p>
             </div>
 
-            <div class="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-6 md:pb-0 mobile-horizontal-scroll no-scrollbar">
+            <div
+                class="flex md:grid overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pb-6 md:pb-0 mobile-horizontal-scroll no-scrollbar">
                 <!-- Topindoku -->
                 <div
                     class="glassmorphic-card rounded-xl overflow-hidden group scale-up w-[80vw] sm:w-[350px] shrink-0 snap-center md:w-auto md:shrink">
@@ -805,6 +807,20 @@
 
                         <!-- Action Icons -->
                         <div class="mt-4 pt-4 border-t border-slate-800/50 flex justify-center gap-4">
+                            <a href="https://play.google.com/store/apps/details?id=com.alphanet.android&pcampaignid=web_share"
+                                target="_blank" class="flex flex-col items-center gap-2 group/icon">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-slate-800 flex items-center justify-center shadow-md shadow-black/20 group-hover/icon:scale-105 group-hover/icon:bg-primary group-hover/icon:text-white transition-all duration-300">
+                                    <svg class="w-4 h-4 text-slate-400 group-hover/icon:text-white transition-colors"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path
+                                            d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.84L14.54,12.84L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.16L16.81,8.88L14.54,11.16L6.05,2.16Z" />
+                                    </svg>
+                                </div>
+                                <span
+                                    class="text-xs text-slate-500 group-hover/icon:text-primary transition-colors">Play
+                                    Store</span>
+                            </a>
                             <a href="https://alphamulticerdas.com/" target="_blank"
                                 class="flex flex-col items-center gap-2 group/icon">
                                 <div
@@ -1035,7 +1051,8 @@
                 </div>
 
                 <!-- Grid Container -->
-                <div id="certCarousel" class="flex sm:grid overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory sm:snap-none grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-6 sm:pb-0 mobile-horizontal-scroll no-scrollbar">
+                <div id="certCarousel"
+                    class="flex sm:grid overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory sm:snap-none grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-6 sm:pb-0 mobile-horizontal-scroll no-scrollbar">
 
                     <!-- Card 1 -->
                     <div
@@ -1792,34 +1809,34 @@
         });
 
         // Starfield Canvas Animation
-        (function() {
+        (function () {
             const canvas = document.getElementById('starfield');
             if (!canvas) return;
             const ctx = canvas.getContext('2d');
-            
+
             let stars = [];
             let width = window.innerWidth;
             let height = window.innerHeight;
-            
+
             // Mouse/Touch tracking
             let mouseX = 0;
             let mouseY = 0;
             let currentMouseX = 0;
             let currentMouseY = 0;
             let hasMovedMouse = false;
-            
+
             // Scroll tracking
             let lastScrollY = window.scrollY;
             let scrollOffset = window.scrollY;
             let targetScrollOffset = window.scrollY;
-            
+
             // Palettes: sky-blue (56, 189, 248), violet (129, 140, 248), white (255, 255, 255)
             const starColors = [
                 'rgba(255, 255, 255, ',
                 'rgba(56, 189, 248, ',
                 'rgba(129, 140, 248, '
             ];
-            
+
             function resize() {
                 width = window.innerWidth;
                 height = window.innerHeight;
@@ -1827,12 +1844,12 @@
                 canvas.height = height;
                 initStars();
             }
-            
+
             function initStars() {
                 stars = [];
                 // Determine star count based on screen width
                 const maxStars = width < 768 ? 150 : 350;
-                
+
                 for (let i = 0; i < maxStars; i++) {
                     stars.push({
                         x: Math.random() * width,
@@ -1846,9 +1863,9 @@
                     });
                 }
             }
-            
+
             window.addEventListener('resize', resize);
-            
+
             // Track mouse/touch
             window.addEventListener('mousemove', (e) => {
                 hasMovedMouse = true;
@@ -1856,7 +1873,7 @@
                 mouseX = e.clientX - width / 2;
                 mouseY = e.clientY - height / 2;
             });
-            
+
             window.addEventListener('touchmove', (e) => {
                 hasMovedMouse = true;
                 if (e.touches.length > 0) {
@@ -1864,7 +1881,7 @@
                     mouseY = e.touches[0].clientY - height / 2;
                 }
             }, { passive: true });
-            
+
             // Track scroll
             window.addEventListener('scroll', () => {
                 const currentScrollY = window.scrollY;
@@ -1872,27 +1889,27 @@
                 targetScrollOffset += diff * 0.5; // Scale scroll movement
                 lastScrollY = currentScrollY;
             }, { passive: true });
-            
+
             // Initialize canvas
             resize();
-            
+
             function animate() {
                 // Clear screen
                 ctx.clearRect(0, 0, width, height);
-                
+
                 // Interpolate mouse coordinates for smooth lag-behind parallax effect
                 currentMouseX += (mouseX - currentMouseX) * 0.05;
                 currentMouseY += (mouseY - currentMouseY) * 0.05;
-                
+
                 // Interpolate scroll offset
                 scrollOffset += (targetScrollOffset - scrollOffset) * 0.1;
-                
+
                 // Base speed drift
                 const baseDriftY = -0.15; // Slow upward drift
-                
+
                 for (let i = 0; i < stars.length; i++) {
                     const star = stars[i];
-                    
+
                     // Update star position with base drift
                     star.y += baseDriftY * star.z;
                     if (star.y < 0) {
@@ -1902,25 +1919,25 @@
                         star.y = 0;
                         star.x = Math.random() * width;
                     }
-                    
+
                     // Update twinkle phase
                     star.twinklePhase += star.twinkleSpeed;
                     const twinkle = Math.sin(star.twinklePhase) * 0.3;
                     const opacity = Math.max(0.1, Math.min(1.0, star.baseOpacity + twinkle));
-                    
+
                     // Apply base drift + mouse parallax + scroll parallax
                     const mouseDriftX = hasMovedMouse ? (currentMouseX * star.z * 0.05) : 0;
                     const mouseDriftY = hasMovedMouse ? (currentMouseY * star.z * 0.05) : 0;
                     const scrollDriftY = scrollOffset * star.z * 0.8;
-                    
+
                     // Draw star coordinates calculated with parallax
                     let drawX = star.x - mouseDriftX;
                     let drawY = star.y - scrollDriftY - mouseDriftY;
-                    
+
                     // Wrap-around coordinates
                     drawX = (drawX % width + width) % width;
                     drawY = (drawY % height + height) % height;
-                    
+
                     // Draw star
                     ctx.beginPath();
                     const radius = star.size * (0.4 + star.z * 0.6);
@@ -1928,10 +1945,10 @@
                     ctx.fillStyle = star.colorPrefix + opacity + ')';
                     ctx.fill();
                 }
-                
+
                 requestAnimationFrame(animate);
             }
-            
+
             // Start animation loop
             animate();
         })();
@@ -1939,7 +1956,7 @@
 
     <!-- Intro Loader Script -->
     <script>
-        (function() {
+        (function () {
             // Lock body scroll immediately
             document.body.style.overflow = 'hidden';
 
