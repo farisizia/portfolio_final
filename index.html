@@ -23,6 +23,7 @@
         <div class="intro-progress-container">
             <div id="intro-progress-bar" class="intro-progress-bar"></div>
         </div>
+        <div id="intro-counter" class="intro-counter">00%</div>
     </div>
 
     <canvas id="starfield" class="fixed inset-0 -z-10 pointer-events-none"></canvas>
@@ -1965,6 +1966,25 @@
             const txt2 = document.getElementById('intro-text-2');
             const txt3 = document.getElementById('intro-text-3');
             const loader = document.getElementById('intro-loader');
+            const counterEl = document.getElementById('intro-counter');
+
+            // Counter dynamic linear increment from 00% to 100%
+            let count = 0;
+            const targetDuration = 4100; // time until fade out starts
+            const intervalTime = 30; // update every 30ms
+            const step = 100 / (targetDuration / intervalTime);
+            
+            const counterInterval = setInterval(() => {
+                count += step;
+                if (count >= 100) {
+                    count = 100;
+                    clearInterval(counterInterval);
+                }
+                if (counterEl) {
+                    const formatted = Math.floor(count).toString().padStart(2, '0');
+                    counterEl.textContent = `${formatted}%`;
+                }
+            }, intervalTime);
 
             // Phase 1: Start and reveal Text 1
             setTimeout(() => {
@@ -2008,6 +2028,7 @@
 
             // Phase 7: Clean up DOM, unlock scroll, and trigger entry animations
             setTimeout(() => {
+                clearInterval(counterInterval);
                 if (loader) loader.remove();
                 document.body.style.overflow = '';
                 // Force scroll and resize events so scroll observer triggers animations instantly

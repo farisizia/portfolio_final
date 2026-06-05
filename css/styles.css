@@ -286,26 +286,43 @@ body {
 /* Specific text variations */
 #intro-text-1 {
     font-family: 'Space Grotesk', sans-serif;
-    color: #f8fafc;
+    background: linear-gradient(90deg, #f8fafc 0%, #cbd5e1 25%, #38bdf8 50%, #cbd5e1 75%, #f8fafc 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     letter-spacing: 0.05em;
-    text-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+    filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.15));
+    animation: shimmer 3.5s linear infinite;
 }
 
 #intro-text-2 {
     font-family: 'Space Grotesk', sans-serif;
-    color: #cbd5e1;
+    background: linear-gradient(90deg, #cbd5e1 0%, #cbd5e1 25%, #f8fafc 50%, #cbd5e1 75%, #cbd5e1 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     letter-spacing: 0.18em;
     text-transform: uppercase;
+    animation: shimmer 3.5s linear infinite;
 }
 
 #intro-text-3 {
     font-family: 'Space Grotesk', sans-serif;
     letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #38bdf8 0%, #d8b4fe 50%, #ab47bc 100%);
+    background: linear-gradient(90deg, #38bdf8 0%, #d8b4fe 25%, #ab47bc 50%, #d8b4fe 75%, #38bdf8 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.25));
+    animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
 }
 
 /* Progress bar styling */
@@ -330,4 +347,15 @@ body {
     box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
-
+/* Counter styling */
+.intro-counter {
+    font-family: 'Space Grotesk', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #38bdf8;
+    letter-spacing: 0.2em;
+    margin-top: 1rem;
+    opacity: 0.85;
+    z-index: 2;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
