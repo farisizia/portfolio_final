@@ -42,17 +42,32 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#experience"
-                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Experience</a>
+                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors font-outfit flex items-center gap-1.5">
+                        <span class="text-[10px] opacity-40 font-mono font-grotesk">01</span>
+                        <span>Experience</span>
+                    </a>
                     <a href="#projects"
-                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Projects</a>
+                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors font-outfit flex items-center gap-1.5">
+                        <span class="text-[10px] opacity-40 font-mono font-grotesk">02</span>
+                        <span>Projects</span>
+                    </a>
                     <a href="#education"
-                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Education</a>
+                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors font-outfit flex items-center gap-1.5">
+                        <span class="text-[10px] opacity-40 font-mono font-grotesk">03</span>
+                        <span>Education</span>
+                    </a>
                     <a href="#certifications"
-                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Certifications</a>
+                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors font-outfit flex items-center gap-1.5">
+                        <span class="text-[10px] opacity-40 font-mono font-grotesk">04</span>
+                        <span>Certifications</span>
+                    </a>
                     <a href="#skills"
-                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors">Skills</a>
+                        class="text-slate-400 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors font-outfit flex items-center gap-1.5">
+                        <span class="text-[10px] opacity-40 font-mono font-grotesk">05</span>
+                        <span>Skills</span>
+                    </a>
                     <a href="#contact"
-                        class="bg-primary text-slate-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-sky-300 transition-colors shadow-lg shadow-sky-500/20">Connect</a>
+                        class="bg-primary text-slate-900 px-4 py-2 rounded-full text-sm font-bold hover:bg-sky-300 transition-colors shadow-lg shadow-sky-500/20 font-outfit">Connect</a>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -1793,12 +1808,12 @@
                         link.classList.add('text-slate-400');
                     });
 
-                    // Add active class to corresponding link
-                    const activeLink = document.querySelector(`nav a[href="#${id}"]`);
-                    if (activeLink) {
-                        activeLink.classList.remove('text-slate-400');
-                        activeLink.classList.add('text-primary');
-                    }
+                    // Add active class to corresponding links (both desktop and mobile)
+                    const activeLinks = document.querySelectorAll(`nav a[href="#${id}"]`);
+                    activeLinks.forEach(link => {
+                        link.classList.remove('text-slate-400');
+                        link.classList.add('text-primary');
+                    });
                 }
             });
         }, {
